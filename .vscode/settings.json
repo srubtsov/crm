@@ -3,5 +3,7 @@
     "python.testing.pytestEnabled": true,
     "python.formatting.provider": "black",
     "python.languageServer": "Pylance",
-    "python.linting.mypyEnabled": true
+    "python.linting.mypyEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true
 }
