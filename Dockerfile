@@ -21,19 +21,11 @@ ENV PYTHONUNBUFFERED 1
 
 ARG COMMIT_ID
 ARG PROJECT_VERSION
-ENV PROJECT_VERSION="${PROJECT_VERSION}"
-ENV WORKERS_PER_CORE="${WORKERS_PER_CORE}"
-ENV MAX_WORKERS="${MAX_WORKERS}"
-ENV HOST="${HOST}"
-ENV LOG_LEVEL="${LOG_LEVEL}"
-ENV GRACEFUL_TIMEOUT="${GRACEFUL_TIMEOUT}"
-ENV TIMEOUT="${TIMEOUT}"
-ENV KEEP_ALIVE="${KEEP_ALIVE}"
 
-LABEL org.opencontainers.image.title="srubtsov/Open-CRM"                                \
+LABEL org.opencontainers.image.title="srubtsov/crm"                                \
       org.opencontainers.image.description="A Personal CRM system for your IT business" \
-      org.opencontainers.image.source="https://github.com/srubtsov/Open-CRM"           \
+      org.opencontainers.image.source="https://github.com/srubtsov/crm"           \
       org.opencontainers.image.revision="$COMMIT_ID"                                   \
-      org.opencontainers.image.version="$PROJECT_VERSION"                              
+      org.opencontainers.image.version="$PROJECT_VERSION"
 
-CMD [ "gunicorn", "-k", "uvicorn.workers.UvicornWorker", "-c", "./config/gunicorn_config.py",  "crm.services.main:app" ]
+CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "-c", "./config/gunicorn_config.py",  "crm.services.main:app"]
