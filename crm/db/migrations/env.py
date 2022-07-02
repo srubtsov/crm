@@ -1,8 +1,11 @@
 from __future__ import with_statement
 
 import os
+import sys
 from logging.config import fileConfig
+from os.path import abspath, dirname
 
+sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))  # Insert <.>/app
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 
@@ -20,7 +23,8 @@ fileConfig(config.config_file_name)  # type: ignore
 # target_metadata = mymodel.Base.metadata
 # target_metadata = None
 
-from services.db.base import Base  # noqa
+from db.base import Base  # noqa
+from db.models.user.account import User  # noqa
 
 target_metadata = Base.metadata
 

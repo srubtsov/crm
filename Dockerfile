@@ -21,6 +21,7 @@ ENV PYTHONUNBUFFERED 1
 
 ARG COMMIT_ID
 ARG PROJECT_VERSION
+ENV PYTHONPATH=.
 
 LABEL org.opencontainers.image.title="srubtsov/crm"                                     \
       org.opencontainers.image.description="A Personal CRM system for your IT business" \

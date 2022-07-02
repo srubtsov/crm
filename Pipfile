@@ -7,6 +7,7 @@ name = "pypi"
 fastapi = "==0.78.0"
 uvicorn = {extras = ["standard"], version = "*"}
 alembic = "==1.8.0"
+psycopg2-binary = "==2.9.3"
 
 [dev-packages]
 flake8 = "*"
