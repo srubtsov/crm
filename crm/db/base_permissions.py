@@ -8,7 +8,8 @@ Example:
     ['user', 'role']
     >>> module_example_acl.permissions  # return an interface of permissions
     ['user:view', 'role:view', 'user:add', 'role:add',
-    'user:edit', 'role:edit', 'user:delete', 'role:delete']"""
+    'user:edit', 'role:edit', 'user:delete', 'role:delete']
+"""
 
 from typing import List, TypeVar
 
