@@ -3,18 +3,20 @@ from sqlalchemy import (
     BigInteger,
     Boolean,
     Column,
+    DateTime,
     ForeignKey,
     Integer,
     String,
     Table,
+    func,
 )
 from sqlalchemy.orm import relationship
 
-from db.base import Base
+from ...base import Base
 
 user_role = Table(
     "user_role",
-    Base.metadata,
+    Base.metadata,  # type: ignore
     Column(
         "user_id",
         Integer,
@@ -37,9 +39,22 @@ class User(Base):
     hashed_password = Column(String, nullable=False)
     is_active = Column(Boolean(), default=True)
     permissions = Column(ARRAY(String))
-    roles = relationship("Role", secondary=user_role)
+    created_at = Column(
+        DateTime(),
+        default=func.now(),
+        nullable=False,
+    )
+
+    roles = relationship("Role", secondary=user_role, back_populates="users")
 
 
 class Role(Base):
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, nullable=False)
+    title = Column(String, unique=True, nullable=False)
+    created_at = Column(
+        DateTime(),
+        default=func.now(),
+        nullable=False,
+    )
+
+    users = relationship("User", secondary=user_role, back_populates="roles")
