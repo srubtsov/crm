@@ -1,3 +1,4 @@
+import os
 import secrets
 from typing import Any, Dict, List, Optional, Union
 
@@ -56,6 +57,8 @@ class Settings(BaseSettings):
     SMTP_HOST: Optional[str] = None
     SMTP_USER: Optional[str] = None
     SMTP_PASSWORD: Optional[str] = None
+
+    HASH_ALGORITHM: str = os.getenv("HASH_ALGORITHM", "HS256")
 
     class Config:
         case_sensitive = True
