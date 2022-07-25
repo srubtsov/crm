@@ -18,7 +18,7 @@ flake8 = "*"
 black = "*"
 isort = "*"
 autoflake = "*"
-mypy = "==0.961"
+mypy = "==0.971"
 
 [requires]
 python_version = "3.8"
