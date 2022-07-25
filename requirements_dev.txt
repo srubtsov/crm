@@ -45,6 +45,6 @@ tomli==2.0.1; python_version < '3.11'
 typing-extensions==4.3.0; python_version < '3.10'
 uvicorn[standard]==0.18.2
 uvloop==0.16.0
-watchfiles==0.15.0
+watchfiles==0.16.0
 websockets==10.3
 zipp==3.8.0; python_version >= '3.7'
